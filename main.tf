@@ -5,6 +5,16 @@ resource "aws_instance" "jenkins" {
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-027e9b95abbffe496" #replace your Subnet
 
+resource "aws_subnet" "public_existing" {
+  vpc_id                  = var.vpc_id
+  cidr_block              = "10.0.1.0/24"   # ⚠️ must match your existing subnet
+  availability_zone       = "us-east-1a"   # ⚠️ must match too
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "${var.project}-${var.environment}-public"
+  }
+}
   # need more for terraform
   root_block_device {
     volume_size = 50
