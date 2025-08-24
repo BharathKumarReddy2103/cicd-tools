@@ -72,7 +72,7 @@ resource "aws_route53_record" "jenkins" {
   name    = "jenkins.${var.zone_name}"
   type    = "A"
   ttl     = 1
-  records = [tostring(aws_instance.jenkins.public_ip)]
+  records = [tostring(aws_instance.jenkins.public_dns)]
   allow_overwrite = true
 }
 
