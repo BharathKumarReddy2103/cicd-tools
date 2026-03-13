@@ -4,6 +4,7 @@ resource "aws_instance" "jenkins" {
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-027e9b95abbffe496" #replace your Subnet
+  associate_public_ip_address = true
 
 # resource "aws_subnet" "public_existing" {
 #   vpc_id                  = var.vpc_id
