@@ -36,6 +36,7 @@ resource "aws_instance" "jenkins_agent" {
   instance_type = "t3.small"
   vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id = "subnet-027e9b95abbffe496" #replace your Subnet
+  associate_public_ip_address = true
 
   # need more for terraform
   root_block_device {
