@@ -31,4 +31,12 @@ dnf install -y jenkins
 # Start Jenkins
 systemctl daemon-reload
 systemctl enable --now jenkins
+
+# Wait for Jenkins to start
+sleep 20
+
+systemctl status jenkins --no-pager
 systemctl is-active jenkins
+
+# Verify Jenkins is listening on port 8080
+ss -tulnp | grep 8080
