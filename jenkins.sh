@@ -31,3 +31,4 @@ dnf install -y jenkins
 # Start Jenkins
 systemctl daemon-reload
 systemctl enable --now jenkins
+systemctl is-active jenkins
